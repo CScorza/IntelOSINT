@@ -60,7 +60,7 @@ Il sistema è progettato per auto-configurarsi (Virtual Environment e dipendenze
     ```
 2.  **Avvia lo script:**
     ```bash
-    python cscorza_intel.py
+    python IntelOSINT.py
     ```
     *Nota: Al primo avvio, il sistema installerà automaticamente i pacchetti necessari (Flask, Playwright, Telethon, ecc.) e configurerà Chromium.*
 
