@@ -1,4 +1,4 @@
-# 🕵️‍♂️ CSCORZA IntelOSINT V.1 
+# 🕵️‍♂️ CSCORZA IntelOSINT
 
 *È un framework avanzato di Cyber Intelligence (OSINT) all-in-one, progettato per investigazioni digitali su social media, numerazioni telefoniche, domini e transazioni crypto. 
 Grazie a un'interfaccia web futuristica, permette di correlare dati provenienti da diverse fonti in tempo reale.*
