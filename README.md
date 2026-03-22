@@ -1,111 +1,107 @@
-![screen](https://github.com/user-attachments/assets/11fc48df-85c3-4f0e-b429-b58d14f1abc6)
+# 🕵️‍♂️ CSCORZA IntelOSINT V.1 
 
-## 🚀 OSINT Tool per l'Analisi di Profili Instagram e Ricerca Globale
+*È un framework avanzato di Cyber Intelligence (OSINT) all-in-one, progettato per investigazioni digitali su social media, numerazioni telefoniche, domini e transazioni crypto. 
+Grazie a un'interfaccia web futuristica, permette di correlare dati provenienti da diverse fonti in tempo reale.*
 
-Framework avanzato di Open Source Intelligence (OSINT) sviluppato per investigatori digitali e appassionati di sicurezza informatica. 
-Il tool offre un'interfaccia web moderna per centralizzare la ricerca di informazioni su oltre 40 piattaforme social, numeri di telefono e profili Instagram.
+---
+<img width="1287" height="910" alt="image" src="https://github.com/user-attachments/assets/3160c7ec-1715-4375-bad0-d9637aa0262c" />
+<img width="2468" height="1125" alt="image" src="https://github.com/user-attachments/assets/ce1bea47-4b70-4a83-bdbc-a28b1539a760" />
 
-*Advanced Open Source Intelligence (OSINT) framework developed for digital investigators and cybersecurity enthusiasts. The tool offers a modern web interface to centralize information gathering across over 40 social platforms, phone numbers, and Instagram profiles.*
+## 🚀 Funzionalità Principali
+Il sistema integra quattro moduli investigativi verticali:
+### 🌐 Social Scan
+Ricerca globale per username o nome reale.
 
-<img width="1683" height="721" alt="image" src="https://github.com/user-attachments/assets/db0b4a74-aa6a-4298-a075-2c6e9ab6e1bd" />
+<div align="center">
+  <img width="800" alt="Social Scan" src="https://github.com/user-attachments/assets/d1e63207-a28a-42bd-b329-b6db5cfd7925" />
+</div>
 
-### 🚀 Caratteristiche Principali | Key Features
+---
 
-- Instagram Intelligence/: 
+### 📱 Phone Intelligence
+Analisi numeri internazionali con **Telegram Live** (verifica presenza, foto profilo e nome), **TrueCaller** (Funziona solo tramite bot) e **WhatsApp**.
 
-   - Estrazione di metadati, stato privacy, categoria account e recupero di email/telefoni offuscati tramite API private.
-   - *Metadata extraction, privacy status, and recovery of obfuscated emails/phones.*
+<div align="center">
+  <img width="800" alt="Phone Intelligence" src="https://github.com/user-attachments/assets/9bde9620-07a9-4e78-9884-3e97ddec07ac" />
+</div>
 
-- Global Social Scanner:
-   - Ricerca simultanea di uno username su 45+ piattaforme (GitHub, TikTok, LinkedIn, X, etc.) con scraping dei metadati.
-   - *Simultaneous search across 45+ platforms with metadata scraping.*
+---
 
-- Phone Lookup & Messaging OSINT:
+### 💰 Financial Investigation
+Tracking wallet **BTC, ETH, BSC, Polygon, Solana**. Include un **analizzatore grafico di nodi** per flussi di denaro e grafici di bilancio.
 
-  -  WhatsApp:
-      - Verifica dello stato di attività del numero.
-      - *Verification and Telegram API integration (ID, name, profile pic).*
+<div align="center">
+  <img width="800" alt="Financial Investigation" src="https://github.com/user-attachments/assets/6138876c-5517-4971-843b-96bcd6a11c07" />
+</div>
 
-  - Telegram:
-    - Integrazione con le API ufficiali per identificare l'ID utente, il nome registrato e scaricare la foto profilo.
-    - *Integration with official APIs to identify user ID, registered name and download profile photo.*
+---
 
-- Dorking Engine: 
-    - Integrazione di dork preimpostati per trovare leak di documenti (PDF, Excel) o profili social specifici.
-    - *Integration of pre-built dorks to find leaks of specific documents (PDF, Excel) or social profiles.*
+### 🌍 Domain & IP Network
+Analisi DNS (A, MX, NS, TXT), WHOIS, scansione porte, Reverse DNS e integrazione **Shodan**.
 
-- Reporting Professionale: 
-  - Generazione istantanea di report in formato PDF, Word o Excel 
-  - *Instantly generate reports in PDF, Word, or Excel formats*
+<div align="center">
+  <img width="800" alt="Domain & IP Network" src="https://github.com/user-attachments/assets/a43222d8-1f19-4c60-be9e-ff451904f290" />
+</div>
 
-### 🛠️ Setup
-Il tool include una funzione di Auto-Setup che gestisce autonomamente l'ambiente virtuale (venv) e le dipendenze.
-*The tool includes an Auto-Setup feature that automatically manages the virtual environment (venv) and dependencies.*
+---
 
-<img width="978" height="768" alt="image" src="https://github.com/user-attachments/assets/986a7a7c-49b1-4164-97ee-e9b02878cb25" />
+## 🛠 Istruzioni per l'Installazione
 
-Clone the repository:
+Il sistema è progettato per auto-configurarsi (Virtual Environment e dipendenze) al primo avvio.
 
-```
-git clone https://github.com/CScorza/InstaOSINT
-cd InstaOSINT
-```
-Run the script:
-```
-python3 InstaOSINT.py
-```
-### 📖 Guida alle Credenziali
-Per sbloccare il pieno potenziale del tool (funzioni Instagram e Telegram), è necessario configurare alcuni parametri.
-*To unlock the full potential of the tool (Instagram and Telegram features), you need to configure some parameters.*
+### Requisiti
+* **Python 3.8** o superiore installato.
 
-1. Come ottenere l'Instagram SessionID/How to get your Instagram Session ID
+### Procedura
+1.  **Clona il repository:**
+    ```bash
+    git clone [https://github.com/TuoUser/CSCORZA-IntelOSINT.git](https://github.com/TuoUser/CSCORZA-IntelOSINT.git)
+    cd CSCORZA-IntelOSINT
+    ```
+2.  **Avvia lo script:**
+    ```bash
+    python cscorza_intel.py
+    ```
+    *Nota: Al primo avvio, il sistema installerà automaticamente i pacchetti necessari (Flask, Playwright, Telethon, ecc.) e configurerà Chromium.*
 
-```
-Il sessionid permette al tool di interrogare le API di Instagram simulando un accesso autenticato.
-The sessionid allows the tool to query Instagram APIs by simulating authenticated access.
+---
 
-1. Accedi a Instagram.com dal tuo browser (Chrome/Edge/Firefox)/Go to Instagram.com from your browser (Chrome/Edge/Firefox).
+## 🔑 Configurazione API e Autenticazioni
 
-2. Premi F12 o tasto destro -> Ispeziona./Press F12 or right-click -> Inspect.
+Per sbloccare le funzioni avanzate, inserisci le credenziali nella dashboard di login:
 
-3. Vai nella scheda Applicazione (o Storage su Firefox)./Go to the Application tab (or Storage in Firefox).
+### 1. Telegram (Ricerca Profonda)
+* **Ottenimento:** Vai su [my.telegram.org](https://my.telegram.org), crea una "App" e copia `API ID` e `API HASH`.
+* **Uso:** Inserisci i dati e clicca su "Ricevi OTP" per autenticare la sessione live.
 
-4. Nel menu a sinistra, espandi Cookie e seleziona https://www.instagram.com./In the left menu, expand Cookies and select https://www.instagram.com.
+### 2. Instagram (Data Extraction)
+* **Ottenimento:** Accedi a Instagram dal browser -> F12 (Strumenti sviluppatore) -> Application -> Cookies. Copia il valore di `sessionid`.
+* **Uso:** Inseriscilo nel campo `sid` per bypassare i blocchi e vedere profili protetti.
 
-5. Cerca nella lista il nome sessionid e copia il valore nella colonna Value./Find the name sessionid in the list and copy the value into the Value column.
-```
-2. Come ottenere Telegram API ID e Hash/ How to get Telegram API ID
-```
-Questi parametri sono necessari per la scansione dei numeri di telefono tramite la libreria Telethon.
-These parameters are required for scanning phone numbers using the Telethon library.
+### 3. Shodan (Analisi Infrastruttura)
+* **Ottenimento:** Registrati su [shodan.io](https://www.shodan.io/) e copia la tua `API Key`.
+* **Uso:** Permette di visualizzare ISP, organizzazione e vulnerabilità degli IP analizzati.
 
-1. Accedi al portale my.telegram.org./Log in to my.telegram.org.
+---
 
-2. Inserisci il tuo numero di telefono e il codice di conferma ricevuto su Telegram./Enter your phone number and the confirmation code you received on Telegram.
+## 📈 Funzioni Speciali
 
-3. Clicca su API development tools./Click on API development tools.
-
-4. Crea una nuova applicazione (puoi usare nomi casuali)./Create a new application (you can use random names).
-
-5. Copia l'App api_id e l'App api_hash./Copy the App api_id and the App api_hash.
-
-```
-
-###🐧Linux (Ambiente Ottimizzato)
-Il tool è stato testato e ottimizzato per distribuzioni Linux.The tool has been tested and optimized for Linux distributions.
-
-**CScorza OSINT Specialist**
-
-|GitHub:|CScorza|
+| Funzione | Descrizione |
 | :--- | :--- |
-|X / Twitter:| @CScorzaOSINT|
-|BlueSky:|cscorza.bsky.social|
-|Telegram:| @CScorzaOSINT|
-|Website:| cscorza.github.io|
-|Email:|cscorzaosint@protonmail.com|
+| **Visual Network Graph** | Mappa interattiva delle transazioni crypto o della rete IP di un dominio. |
+| **Telegram Crawler** | Esporta la lista partecipanti di gruppi/canali pubblici in formato **CSV**. |
+| **Email Leak (Holehe)** | Verifica la registrazione di un'email su centinaia di siti (social, dating, ecc.). |
+| **PDF Reporting** | Salva ogni scoperta nella History e genera un report investigativo finale in PDF. |
+
+---
+
+## ⚠️ Disclaimer
+*Questo strumento è fornito esclusivamente a scopo educativo e per attività di ricerca etica. L'autore non si assume alcuna responsabilità per l'uso improprio o illegale del software. Rispetta sempre la privacy e i termini di servizio delle piattaforme.*
+
+---
+**Sviluppato da [CScorza](https://github.com/CScorza)**
 
 ☕ Supporta il Progetto/Support
 
-|BTC:| bc1qfn9kynt7k26eaxk4tc67q2hjuzhfcmutzq2q6a|
-| :--- | :--- |
-|TON:| UQBtLB6m-7q8j9Y81FeccBEjccvl34Ag5tWaUD|
+* **BTC**:	bc1qfn9kynt7k26eaxk4tc67q2hjuzhfcmutzq2q6a
+* **TON**:	UQBtLB6m-7q8j9Y81FeccBEjccvl34Ag5tWaUD
