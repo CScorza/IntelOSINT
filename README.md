@@ -55,7 +55,7 @@ Il sistema è progettato per auto-configurarsi (Virtual Environment e dipendenze
 ### Procedura
 1.  **Clona il repository:**
     ```bash
-    git clone https://github.com/TuoUser/CSCORZA-IntelOSINT.git
+    git clone https://github.com/CScorza/IntelOSINT.git
     cd CSCORZA-IntelOSINT
     ```
 2.  **Avvia lo script:**
