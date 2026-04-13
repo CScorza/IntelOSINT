@@ -1,5 +1,5 @@
-MANUALE OPERATIVO - IntelOSINT.1
-Versione: CSCORZA IntelOSINT V.1
+MANUALE OPERATIVO - IntelOSINT
+Versione: CSCORZA IntelOSINT V.2
 Data: 13/04/2026
 
 Questo manuale e pensato per chi usa lo strumento tutti i giorni.
