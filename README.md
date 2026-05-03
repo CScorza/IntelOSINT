@@ -1,5 +1,6 @@
 <img width="1362" height="353" alt="Immagine1" src="https://github.com/user-attachments/assets/6727f5ad-829f-4dc2-908b-a5c5ca59301a" />
 
+
 *È un framework avanzato di Cyber Intelligence (OSINT) all-in-one, progettato per investigazioni digitali su social media, numerazioni telefoniche, domini e transazioni crypto.*  
 *🇬🇧 It is an advanced all-in-one Cyber Intelligence (OSINT) framework designed for digital investigations across social media, phone numbers, domains, and crypto transactions.*
 
@@ -124,17 +125,45 @@ Per sbloccare le funzioni avanzate, inserisci le credenziali nella dashboard di 
 ## 📈 Funzioni Speciali
 *🇬🇧 Special Features*
 
-| Funzione | Descrizione |
-| :--- | :--- |
-| **Visual Network Graph** | Mappa interattiva delle transazioni crypto o della rete IP di un dominio. |
-| *Function* | *Description* |
-| **Visual Network Graph** | *Interactive map of crypto transactions or a domain's IP network.* |
-| **Telegram Crawler** | Esporta la lista partecipanti di gruppi/canali pubblici in formato **CSV**. |
-| **Telegram Crawler** | *Exports the participant list of public groups/channels in **CSV** format.* |
-| **Email Leak (Holehe)** | Verifica la registrazione di un'email su centinaia di siti (social, dating, ecc.). |
-| **Email Leak (Holehe)** | *Checks whether an email is registered on hundreds of sites (social, dating, etc.).* |
-| **PDF Reporting** | Salva ogni scoperta nella History e genera un report investigativo finale in PDF. |
-| **PDF Reporting** | *Saves each finding in History and generates a final investigative PDF report.* |
+<table>
+  <thead>
+    <tr>
+      <th>Funzione</th>
+      <th>Descrizione</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2"><strong>Visual Network Graph</strong></td>
+      <td>Mappa interattiva delle transazioni crypto o della rete IP di un dominio.</td>
+    </tr>
+    <tr>
+      <td><em>🇬🇧 Interactive map of crypto transactions or a domain's IP network.</em></td>
+    </tr>
+    <tr>
+      <td rowspan="2"><strong>Telegram Crawler</strong></td>
+      <td>Esporta la lista partecipanti di gruppi/canali pubblici in formato <strong>CSV</strong>.</td>
+    </tr>
+    <tr>
+      <td><em>🇬🇧 Exports the participant list of public groups/channels in CSV format.</em></td>
+    </tr>
+    <tr>
+      <td rowspan="2"><strong>Email Leak (Holehe)</strong></td>
+      <td>Verifica la registrazione di un'email su centinaia di siti (social, dating, ecc.).</td>
+    </tr>
+    <tr>
+      <td><em>🇬🇧 Checks whether an email is registered on hundreds of sites (social, dating, etc.).</em></td>
+    </tr>
+    <tr>
+      <td rowspan="2"><strong>PDF Reporting</strong></td>
+      <td>Salva ogni scoperta nella History e genera un report investigativo finale in PDF.</td>
+    </tr>
+    <tr>
+      <td><em>🇬🇧 Saves each finding in History and generates a final investigative PDF report.</em></td>
+    </tr>
+  </tbody>
+</table>
+
 
 ---
 
