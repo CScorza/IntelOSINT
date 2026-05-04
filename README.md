@@ -1,63 +1,89 @@
-<img width="1362" height="353" alt="Immagine1" src="https://github.com/user-attachments/assets/6727f5ad-829f-4dc2-908b-a5c5ca59301a" />
+# <img width="1362" height="353" alt="IntelOSINT Banner" src="https://github.com/user-attachments/assets/6727f5ad-829f-4dc2-908b-a5c5ca59301a"/>
 
+![Python](https://img.shields.io/badge/Python-3.8+-blue?logo=python)
+![Status](https://img.shields.io/badge/Status-Active-success)
+![Framework](https://img.shields.io/badge/Type-OSINT%20Platform-0f172a)
 
-*È un framework avanzato di Cyber Intelligence (OSINT) all-in-one, progettato per investigazioni digitali su social media, numerazioni telefoniche, domini e transazioni crypto.*  
-*🇬🇧 It is an advanced all-in-one Cyber Intelligence (OSINT) framework designed for digital investigations across social media, phone numbers, domains, and crypto transactions.*
-
-*Grazie a un'interfaccia web futuristica, permette di correlare dati provenienti da diverse fonti in tempo reale.*  
-*🇬🇧 Thanks to a futuristic web interface, it enables real-time correlation of data from multiple sources.*
-
----
-<img width="1287" height="910" alt="image" src="https://github.com/user-attachments/assets/3160c7ec-1715-4375-bad0-d9637aa0262c" />
-
-## 🚀 Funzionalità Principali
-*🇬🇧 Main Features*
-
-Il sistema integra quattro moduli investigativi verticali:  
-*🇬🇧 The system integrates four vertical investigative modules:*
-
-### 🌐 Social Scan
-Ricerca globale per username o nome reale.  
-*🇬🇧 Global search by username or real name.*
+IntelOSINT e un framework OSINT all-in-one per investigazioni digitali con interfaccia web e workflow multi-tab.  
+IntelOSINT is an all-in-one OSINT framework for digital investigations with a web dashboard and a multi-tab workflow.
 
 <div align="center">
-  <img width="800" alt="Social Scan" src="https://github.com/user-attachments/assets/d1e63207-a28a-42bd-b329-b6db5cfd7925" />
+<img width="1280" height="613" alt="image" src="https://github.com/user-attachments/assets/51c4bba4-7d54-4251-bc8f-318d5289daf8"/>
 </div>
 
----
+## Moduli
+### 1) 🌐 Social Scan
+- **IT:** Ricerca e correlazione profili social per username o nome reale.  
+- **EN:** Search and correlate social profiles by username or real name.
+ 
+<div align="center">
+  <img width="1280" height="605" alt="image" src="https://github.com/user-attachments/assets/1363d8d2-ae8b-4e25-bb32-231f884c9d94"/>
+</div>
 
-### 📱 Phone Intelligence
-Analisi numeri internazionali con **Telegram Live** (verifica presenza, foto profilo e nome), **TrueCaller** (Funziona solo tramite bot) e **WhatsApp**.  
-*🇬🇧 International phone number analysis with Telegram Live (presence check, profile photo, and name), TrueCaller (works only through bot), and WhatsApp.*
+### 2) 📱 Phone Intelligence
+- **IT:** Raccolta informazioni tramite bot Telegrma degli utilizzatori delle utenze telefoniche e verifica degli account WhatsApp e Telegram.  
+- **EN:** Collecting information from telephone users via Telegram bots and verifying WhatsApp and Telegram accounts
+ 
+<div align="center">
+  <img width="2228" height="1169" alt="image" src="https://github.com/user-attachments/assets/8b2531af-efb5-461e-87c3-4e0caaa9d1b8"/>
+</div>
+
+### 3) 💰 Financial Investigation
+- **IT:** Tracciamento wallet e visualizzazione relazioni.  
+- **EN:** Wallet tracking and relationship visualization.
+ 
+<div align="center">
+  <img width="3392" height="870" alt="image" src="https://github.com/user-attachments/assets/ec71282b-a93d-4d4e-9eae-b7cc45132a77"/>
+</div>
+
+### 4) 🌍 Domain & IP Network
+- **IT:** Raccolta dati WHOIS, DNS, porte, reverse DNS e contesto rete IP.  
+- **EN:** WHOIS, DNS, port, reverse DNS, and IP network context collection.
+ 
+<div align="center">
+  <img width="2217" height="1106" alt="image" src="https://github.com/user-attachments/assets/fc2c700c-d404-4a28-ba0c-7cf6e00e2c08"/>
+</div>
+
+### 5) 📬 Gmail OSINT
+- **IT:** LookUp Email Google.  
+- **EN:** LookUp Email Google.
+ 
+<div align="center">
+<img width="2309" height="1122" alt="image" src="https://github.com/user-attachments/assets/f0cf879c-3804-4e52-b293-c57c965902f8"/>
+</div>
+
+### 6) 📄 Doc GDrive
+- **IT:** Analisi di documenti pubblici Google e relativi metadati.  
+- **EN:** Analysis of public Google documents and related metadata.
 
 <div align="center">
-  <img width="800" alt="Phone Intelligence" src="https://github.com/user-attachments/assets/9bde9620-07a9-4e78-9884-3e97ddec07ac" />
+  <img width="2052" height="683" alt="image" src="https://github.com/user-attachments/assets/af41895b-877e-43c7-ae15-a8abb95e1db2"/>
+
 </div>
 
----
+### 7) 🧠 Face Recognition
+- **IT:** Confronto facciale con modalità 1:1, 1:tanti e tanti:tanti.  
+- **EN:** Face matching in 1:1, 1-to-many, and many-to-many modes.
+ 
+<div align="center">
+<img width="2215" height="1100" alt="image" src="https://github.com/user-attachments/assets/029ac15e-0d7f-4e81-bbcf-9b80df85b35b"/>
+</div>
 
-### 💰 Financial Investigation
-Tracking wallet **BTC, ETH, BSC, Polygon, Solana**.  
-*🇬🇧 Wallet tracking for BTC, ETH, BSC, Polygon, Solana.*
+### 8) 🎞️ Media Intelligence
+- **IT:** Analisi forense di immagini e video con verifica metadati.  
+- **EN:** Forensic analysis of images and videos with metadata inspection.
+ 
+<div align="center">
+<img width="2262" height="1069" alt="image" src="https://github.com/user-attachments/assets/4ad39cea-6468-4f04-8aba-301dc41018c2"/>
+</div>
 
-Include un **analizzatore grafico di nodi** per flussi di denaro e grafici di bilancio.  
-*🇬🇧 Includes a graph-based node analyzer for money flows and balance charts.*
+### 9) 🔍 Web Dork
+- **IT:** Ricerche web mirate con filtri per motore e ambito.  
+- **EN:** Targeted web searches with engine and scope filters.
 
 <div align="center">
-  <img width="800" alt="Financial Investigation" src="https://github.com/user-attachments/assets/6138876c-5517-4971-843b-96bcd6a11c07" />
+<img width="1889" height="682" alt="image" src="https://github.com/user-attachments/assets/f8e24f77-756c-4ff0-b308-e0d32670d86d"/>
 </div>
-
----
-
-### 🌍 Domain & IP Network
-Analisi DNS (A, MX, NS, TXT), WHOIS, scansione porte, Reverse DNS e integrazione **Shodan**.  
-*🇬🇧 DNS analysis (A, MX, NS, TXT), WHOIS, port scanning, Reverse DNS, and Shodan integration.*
-
-<div align="center">
-  <img width="800" alt="Domain & IP Network" src="https://github.com/user-attachments/assets/a43222d8-1f19-4c60-be9e-ff451904f290" />
-</div>
-
----
 
 ## 🛠 Istruzioni per l'Installazione
 *🇬🇧 Installation Instructions*
