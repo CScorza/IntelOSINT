@@ -3533,7 +3533,6 @@ HTML_UI = r"""
                         <span id="sid-indicator" class="cred-inline-dot warn" title="Session ID non verificata"></span>
                     </span>
                 </div>
-                <input type="password" id="sid" class="login-input" value="{{creds.sid}}" placeholder="SessionID Cookie...">
                 <div class="section-title with-meta" style="margin-top:20px; color:var(--secondary)">
                     <span class="credential-title-wrap"><span>TikTok Session</span></span>
                     <span class="cred-inline-meta">
@@ -3541,24 +3540,23 @@ HTML_UI = r"""
                         <span id="tiktok-indicator" class="cred-inline-dot warn" title="TikTok session non verificata"></span>
                     </span>
                 </div>
-                <input type="password" id="tiktok_sid" class="login-input" value="{{creds.tiktok_sid}}" placeholder="TikTok sessionid...">
+                <input type="hidden" id="sid" data-configured="{{ '1' if creds.sid else '0' }}">
+                <input type="hidden" id="tiktok_sid" data-configured="{{ '1' if creds.tiktok_sid else '0' }}">
+                <input type="hidden" id="tg_id" data-configured="{{ '1' if creds.tg_id else '0' }}">
+                <input type="hidden" id="tg_hash" data-configured="{{ '1' if creds.tg_hash else '0' }}">
+                <input type="hidden" id="phone" data-configured="{{ '1' if creds.my_phone else '0' }}">
+                <input type="hidden" id="shodan_key" data-configured="{{ '1' if creds.shodan_key else '0' }}">
                 <div class="section-title with-meta" style="margin-top:20px; color:var(--secondary)">
-                    <span class="credential-title-wrap"><span>Telegram Live</span></span>
+                    <span class="credential-title-wrap"><span>Area credenziali isolate</span></span>
                     <span class="cred-inline-meta">
-                        <span class="cred-health-help" role="button" aria-label="Informazioni Telegram API" title="Informazioni Telegram API" onclick="showCredentialHelp('telegram_api')">ⓘ</span>
-                        <span id="telegram-indicator" class="cred-inline-dot warn" title="Telegram API non verificata"></span>
+                        <span class="cred-health-help" role="button" aria-label="Informazioni isolamento credenziali" title="Informazioni isolamento credenziali">ⓘ</span>
                     </span>
                 </div>
-                <div style="display:flex; gap:10px;">
-                    <input type="text" id="tg_id" class="login-input" value="{{creds.tg_id}}" placeholder="API ID" style="flex:1">
-                    <input type="password" id="tg_hash" class="login-input" value="{{creds.tg_hash}}" placeholder="API HASH" style="flex:1">
+                <div style="margin-bottom: 20px; color: #cbd5e1; font-size: 13px; line-height: 1.5;">
+                    I campi sensibili sono gestiti in un iframe sandboxato, isolati dal resto della pagina.
+                    Usa il form qui sotto per aggiornare le credenziali.
                 </div>
-                <input type="text" id="phone" class="login-input" value="{{creds.my_phone}}" placeholder="+39...">
-                <button id="btn-send-code" onclick="sendTgCode()" class="btn-otp">RICEVI CODICE OTP</button>
-                <div id="otp-area" style="display:none; border:1px dashed var(--secondary); padding:10px; border-radius:8px; margin-bottom:10px; background:rgba(59, 130, 246, 0.1);">
-                    <input type="text" id="otp_code" class="login-input" placeholder="Codice Telegram..." style="text-align:center;">
-                    <button onclick="verifyTgCode()" class="action-btn" style="background:var(--secondary); color:white; width:100%;">CONFERMA</button>
-                </div>
+                <iframe id="credential-frame" sandbox="allow-scripts" src="/credential_frame" style="width:100%; min-height:620px; border:1px solid rgba(255,255,255,0.12); border-radius:16px; background:#02040a;"></iframe>
                 <div class="section-title with-meta" style="margin-top:20px; color:#ea4335">
                     <span class="credential-title-wrap"><span>Accredita Google (GHunt)</span></span>
                     <span class="cred-inline-meta">
@@ -3580,8 +3578,6 @@ HTML_UI = r"""
                         <span id="shodan-indicator" class="cred-inline-dot warn" title="Shodan API non verificata"></span>
                     </span>
                 </div>
-                <input type="password" id="shodan_key" class="login-input" value="{{creds.shodan_key}}" placeholder="Shodan API Key...">
-                
                 <button id="btn-enter-dashboard" class="action-btn" style="margin-top:auto; width:100%;">ENTRA NELLA DASHBOARD</button>
             </div>
             
@@ -4528,19 +4524,27 @@ HTML_UI = r"""
                 tiktok_sid: (document.getElementById('tiktok_sid')?.value || '').trim(),
                 tg_id: (document.getElementById('tg_id')?.value || '').trim(),
                 tg_hash: (document.getElementById('tg_hash')?.value || '').trim(),
-                phone: (document.getElementById('phone')?.value || '').trim(),
+                my_phone: (document.getElementById('phone')?.value || '').trim(),
                 shodan_key: (document.getElementById('shodan_key')?.value || '').trim()
             };
         }
 
         async function evaluateCredentialHealth(includeGhunt = true) {
             const vals = collectCredentialValues();
+            const configured = {
+                sid: document.getElementById('sid')?.dataset.configured === '1',
+                tiktok_sid: document.getElementById('tiktok_sid')?.dataset.configured === '1',
+                tg_id: document.getElementById('tg_id')?.dataset.configured === '1',
+                tg_hash: document.getElementById('tg_hash')?.dataset.configured === '1',
+                my_phone: document.getElementById('phone')?.dataset.configured === '1',
+                shodan_key: document.getElementById('shodan_key')?.dataset.configured === '1'
+            };
             const status = {
-                session_id_instagram: Boolean(vals.sid),
-                session_id_tiktok: Boolean(vals.tiktok_sid),
-                session_id: Boolean(vals.sid || vals.tiktok_sid),
-                telegram_api: Boolean(vals.tg_id && vals.tg_hash),
-                shodan: Boolean(vals.shodan_key),
+                session_id_instagram: Boolean(vals.sid || configured.sid),
+                session_id_tiktok: Boolean(vals.tiktok_sid || configured.tiktok_sid),
+                session_id: Boolean(vals.sid || vals.tiktok_sid || configured.sid || configured.tiktok_sid),
+                telegram_api: Boolean((vals.tg_id || configured.tg_id) && (vals.tg_hash || configured.tg_hash)),
+                shodan: Boolean(vals.shodan_key || configured.shodan_key),
                 ghunt: null
             };
             if (!includeGhunt) {
@@ -4568,18 +4572,17 @@ HTML_UI = r"""
             }
 
             const values = collectCredentialValues();
+            const payload = {};
+            Object.entries(values).forEach(([key, value]) => {
+                if (typeof value === 'string' && value.length > 0) {
+                    payload[key] = value;
+                }
+            });
             try {
                 await fetch('/api/save_creds', {
                     method:'POST',
                     headers:{'Content-Type':'application/json'},
-                    body: JSON.stringify({
-                        sid: values.sid,
-                        tiktok_sid: values.tiktok_sid,
-                        tg_id: values.tg_id,
-                        tg_hash: values.tg_hash,
-                        my_phone: values.phone,
-                        shodan_key: values.shodan_key
-                    })
+                    body: JSON.stringify(payload)
                 });
             } catch (err) {
                 console.warn('Salvataggio credenziali non riuscito:', err);
@@ -16743,6 +16746,134 @@ class ReportGenerator:
         return pdf.output()
 
 core = OSINTCore()
+
+CREDENTIAL_FRAME_UI = r"""
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Credenziali isolate</title>
+    <style>
+        body { margin:0; min-height:100vh; background:#070a13; color:#e2e8f0; font-family:'Segoe UI', sans-serif; }
+        .frame-box { padding: 24px; max-width: 820px; margin: 0 auto; }
+        h1 { margin: 0 0 14px; font-size: 20px; color:#38bdf8; }
+        p { margin: 0 0 18px; color:#cbd5e1; font-size: 13px; line-height: 1.6; }
+        label { display:block; margin-bottom:8px; font-size:12px; color:#94a3b8; text-transform:uppercase; letter-spacing:.6px; }
+        .frame-input { width:100%; background:#0b1220; border:1px solid #1e293b; color:#e2e8f0; padding:12px 14px; font-size:14px; border-radius:10px; margin-bottom:15px; box-sizing:border-box; }
+        .frame-input:focus { outline:none; border-color:#38bdf8; box-shadow:0 0 12px rgba(56,189,248,.2); }
+        .action-btn { width:100%; border:none; border-radius:10px; padding:12px 14px; background:#38bdf8; color:#020617; font-weight:800; cursor:pointer; transition:0.2s; }
+        .action-btn:hover { filter:brightness(1.05); }
+        .helper { margin-bottom:18px; color:#94a3b8; font-size:12px; }
+        .status-box { margin-top:14px; padding:12px 14px; border-radius:10px; background:rgba(56,189,248,0.08); border:1px solid rgba(56,189,248,0.15); color:#cbd5e1; font-size:13px; min-height:36px; }
+    </style>
+</head>
+<body>
+    <div class="frame-box">
+        <h1>Credenziali isolate</h1>
+        <p>Inserisci o aggiorna qui le credenziali sensibili. Il form è eseguito in un iframe sandboxato, con origine isolata rispetto al resto della pagina.</p>
+        <label for="sid">Instagram Session</label>
+        <input id="sid" class="frame-input" type="password" placeholder="{% if creds.sid %}••• già configurato (digita per cambiare){% else %}SessionID Cookie...{% endif %}">
+        <label for="tiktok_sid">TikTok Session</label>
+        <input id="tiktok_sid" class="frame-input" type="password" placeholder="{% if creds.tiktok_sid %}••• già configurato (digita per cambiare){% else %}TikTok sessionid...{% endif %}">
+        <label for="tg_id">Telegram API ID</label>
+        <input id="tg_id" class="frame-input" type="text" placeholder="{% if creds.tg_id %}API ID già configurato (digita per cambiare){% else %}API ID{% endif %}">
+        <label for="tg_hash">Telegram API HASH</label>
+        <input id="tg_hash" class="frame-input" type="password" placeholder="{% if creds.tg_hash %}••• già configurato (digita per cambiare){% else %}API HASH{% endif %}">
+        <label for="phone">Telefono</label>
+        <input id="phone" class="frame-input" type="text" placeholder="{% if creds.my_phone %}+39... già configurato (digita per cambiare){% else %}+39...{% endif %}">
+        <label for="shodan_key">Shodan API Key</label>
+        <input id="shodan_key" class="frame-input" type="password" placeholder="{% if creds.shodan_key %}••• già configurata (digita per cambiare){% else %}Shodan API Key...{% endif %}">
+        <button class="action-btn" onclick="saveCreds()">SALVA CREDENZIALI</button>
+        <div class="status-box" id="status-box">Nessuna modifica salvata.</div>
+        <p class="helper">Nota: il valore effettivo non viene mai esposto nel DOM della pagina principale.</p>
+        <div style="margin-top: 20px; display:flex; gap:10px;">
+            <button class="action-btn" style="background:#0f766e;" onclick="sendTgCode()">RICEVI CODICE OTP</button>
+            <button class="action-btn" style="background:#2563eb;" onclick="verifyTgCode()">VERIFICA OTP</button>
+        </div>
+        <input id="otp_code" class="frame-input" type="text" placeholder="Codice Telegram..." style="margin-top:15px;">
+    </div>
+    <script>
+        function collectCredentialValues() {
+            return {
+                sid: document.getElementById('sid').value.trim(),
+                tiktok_sid: document.getElementById('tiktok_sid').value.trim(),
+                tg_id: document.getElementById('tg_id').value.trim(),
+                tg_hash: document.getElementById('tg_hash').value.trim(),
+                my_phone: document.getElementById('phone').value.trim(),
+                shodan_key: document.getElementById('shodan_key').value.trim()
+            };
+        }
+        async function saveCreds() {
+            const status = document.getElementById('status-box');
+            const values = collectCredentialValues();
+            const payload = {};
+            Object.entries(values).forEach(([key, value]) => {
+                if (value.length > 0) payload[key] = value;
+            });
+            if (!Object.keys(payload).length) {
+                status.textContent = 'Nessuna credenziale inserita da salvare.';
+                return;
+            }
+            status.textContent = 'Salvataggio in corso...';
+            try {
+                const r = await fetch('/api/save_creds', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify(payload)
+                });
+                const data = await r.json();
+                if (data && data.status === 'ok') {
+                    status.textContent = 'Credenziali salvate correttamente.';
+                    window.parent.postMessage({type:'credentials-saved'}, '*');
+                } else {
+                    status.textContent = 'Errore salvataggio credenziali.';
+                }
+            } catch (err) {
+                status.textContent = 'Errore di rete durante il salvataggio.';
+            }
+        }
+        async function sendTgCode() {
+            const status = document.getElementById('status-box');
+            status.textContent = 'Invio codice Telegram...';
+            try {
+                const r = await fetch('/api/tg/send_code', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({
+                        tg_id: document.getElementById('tg_id').value.trim(),
+                        tg_hash: document.getElementById('tg_hash').value.trim(),
+                        phone: document.getElementById('phone').value.trim()
+                    })
+                });
+                const data = await r.json();
+                status.textContent = data && data.status === 'ok' ? 'Codice inviato. Inserisci il codice OTP e verifica.' : 'Errore invio codice Telegram.';
+            } catch (err) {
+                status.textContent = 'Errore di rete durante invio OTP.';
+            }
+        }
+        async function verifyTgCode() {
+            const status = document.getElementById('status-box');
+            status.textContent = 'Verifica OTP in corso...';
+            try {
+                const r = await fetch('/api/tg/verify', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body: JSON.stringify({code: document.getElementById('otp_code').value.trim()})
+                });
+                const data = await r.json();
+                status.textContent = data && data.status === 'ok' ? 'OTP verificato con successo.' : 'Codice OTP non valido.';
+            } catch (err) {
+                status.textContent = 'Errore di rete durante la verifica OTP.';
+            }
+        }
+    </script>
+</body>
+</html>
+"""
+
+@app.route('/credential_frame')
+def credential_frame():
+    return render_template_string(CREDENTIAL_FRAME_UI, creds=core.creds)
 
 @app.route('/')
 def home(): return render_template_string(HTML_UI, creds=core.creds, social_map=SOCIAL_MAP, crypto_map=CRYPTO_MAP, logo_url=LOGO_URL, author_info=AUTHOR_INFO, donations=DONATIONS)
