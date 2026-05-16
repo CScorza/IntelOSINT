@@ -8,7 +8,7 @@ IntelOSINT e un framework OSINT all-in-one per investigazioni digitali con inter
 IntelOSINT is an all-in-one OSINT framework for digital investigations with a web dashboard and a multi-tab workflow.
 
 <div align="center">
-<img width="1280" height="613" alt="image" src="https://github.com/user-attachments/assets/51c4bba4-7d54-4251-bc8f-318d5289daf8"/>
+<img width="1048" height="885" alt="image" src="https://github.com/user-attachments/assets/d6f64cd1-6945-4045-b5fd-03ba34b28d7f" />
 </div>
 
 ## Moduli
